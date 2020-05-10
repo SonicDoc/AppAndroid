@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageUser"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:scaleType="matrix" />
+
+            <TextView
+                android:id="@+id/textViewIsNew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/imageUser"
+                android:layout_alignTop="@+id/imageUser"
+                android:layout_marginStart="82dp"
+                android:layout_marginTop="104dp"
+                android:width="38dp"
+                android:background="#1C9603"
+                android:padding="2dp"
+                android:text="New"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/Nombres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/imageUser"
+                tools:text="nombres" />
+
+            <TextView
+                android:id="@+id/Fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Nombres"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/imageUser"
+                tools:text="fecha" />
+
+            <TextView
+                android:id="@+id/Turno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Fecha"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/imageUser"
+                tools:text="turno" />
+
+        </RelativeLayout>r
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

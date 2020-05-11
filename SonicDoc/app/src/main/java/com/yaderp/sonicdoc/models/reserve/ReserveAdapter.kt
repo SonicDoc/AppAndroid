@@ -27,7 +27,7 @@ class ReserveAdapter (
         holder.view.textViewIsNew.visibility = if(reserve.Estado == 1) View.VISIBLE else View.INVISIBLE
 
         var img = R.drawable.hombre
-        if(reserve.Sexo!=1){
+        if(reserve.Estado!=1){
             img = R.drawable.mujer
         }
         holder.view.imageUser.setImageResource(img)

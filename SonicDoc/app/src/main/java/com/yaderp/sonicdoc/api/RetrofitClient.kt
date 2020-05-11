@@ -6,7 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private val AUTH = "Basic "+ Base64.encodeToString("ydRSoft:123456".toByteArray(), Base64.NO_WRAP)
+
+    //punto final del api
     private const val BASE_URL = "http://yaderp.com/sonicdoc/api/"
 
     private val okHttpClient = OkHttpClient.Builder()
@@ -14,7 +15,7 @@ object RetrofitClient {
             val original = chain.request()
 
             val requesBuilder = original.newBuilder()
-                .addHeader("Autorizacion",AUTH)
+                .addHeader("Autorizacion","ydrsoft")
                 .method(original.method(),original.body())
 
             val request = requesBuilder.build()
@@ -22,7 +23,6 @@ object RetrofitClient {
         }.build()
 
     val instance: Api by lazy{
-
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -31,5 +31,4 @@ object RetrofitClient {
 
         retrofit.create(Api::class.java)
     }
-
 }

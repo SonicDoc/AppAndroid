@@ -41,8 +41,17 @@ class LoginActivity : AppCompatActivity() {
                 }
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if(!response.body()?.Error!!){
-                        startActivity(Intent(this@LoginActivity, ListReserveActivity::class.java))
+                        var msgLogin:String?
+                        msgLogin= response.body()?.Mensaje!!
+
+                        //Se realiza un intent para enviar elmensaje de bienvenida del API
+
+                        val intent:Intent= Intent(this@LoginActivity, ListReserveActivity::class.java)
+                        intent.putExtra("username", msgLogin)
+                        startActivity(intent)
+
                     }else{
+                        //Muestra el mensaje de error pro contraseña y/o usuario incorrecto
                         textMessaje.text = response.body()?.Mensaje!!
                     }
 

@@ -3,29 +3,37 @@ package com.yaderp.sonicdoc.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yaderp.sonicdoc.R
 import com.yaderp.sonicdoc.api.RetrofitClient
+import com.yaderp.sonicdoc.gus.Reserva
+import com.yaderp.sonicdoc.gus.ReservaService
 import com.yaderp.sonicdoc.models.reserve.Reserve
 import com.yaderp.sonicdoc.models.reserve.ReserveAdapter
 import kotlinx.android.synthetic.main.activity_list_reserve.*
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class ListReserveActivity : AppCompatActivity() {
     var msgLogin:String =""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_reserve)
 
-        val intent: Intent = intent
-        msgLogin = intent.getStringExtra("username")
+        //val intent: Intent = intent
+        //msgLogin = intent.getStringExtra("username")
 
-        textTitulo.text = msgLogin
+        //textTitulo.text = msgLogin
 
         buttonListar.setOnClickListener {
-            cargarListareserva()
+            //cargarListareserva()
+            loadReserva()
         }
     }
 
@@ -68,6 +76,31 @@ class ListReserveActivity : AppCompatActivity() {
             }
         })
 
+    }
+
+    // gus
+    private fun loadReserva(){
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://yaderp.com/sonicdoc/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val reservaService:ReservaService
+        reservaService = retrofit.create(ReservaService::class.java)
+        val request =reservaService.getAll()
+        request.enqueue(object : Callback<List<Reserve>>{
+            override fun onFailure(call: Call<List<Reserve>>, t: Throwable) {
+                Toast.makeText(this@ListReserveActivity,t.message.toString(),Toast.LENGTH_LONG).show()
+            }
+
+            override fun onResponse(call: Call<List<Reserve>>, response: Response<List<Reserve>>) {
+                if(response.isSuccessful){
+                    val reservas:List<Reserve> = response.body()!!
+                    recyclerViewReserves.layoutManager = LinearLayoutManager(this@ListReserveActivity)
+                    recyclerViewReserves.adapter = ReserveAdapter(reservas)
+                }
+            }
+        })
     }
 }
 

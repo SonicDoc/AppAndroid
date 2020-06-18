@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageUsuario"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/doc"
+            android:scaleType="matrix" />
+
+        <TextView
+            android:id="@+id/tvNombres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageUsuario"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/imageUsuario"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            tools:text="nombres" />
+
+        <TextView
+            android:id="@+id/tvEspecialidad"
+            android:layout_width="238dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageUsuario"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="44dp"
+            android:layout_toEndOf="@+id/imageUsuario"
+            android:textColor="@color/colorSuccess"
+            android:textSize="18sp"
+            tools:text="especialidad" />
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageUsuario"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="62dp"
+            android:text="Fecha"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="Fecha" />
+
+        <TextView
+            android:id="@+id/turno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageUsuario"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="133dp"
+            android:text="Turno"
+            android:textColor="@color/colorPrimaryDark"
+            tools:text="Turno" />
+
+        <EditText
+            android:id="@+id/etFecha"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageUsuario"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="49dp"
+            android:inputType="date"
+            android:maxLines="1"
+            android:textColor="@color/colorPrimary" />
+
+        <Spinner
+            android:id="@+id/spTurno"
+            android:layout_width="295dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/etFecha"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="21dp"
+            android:text="Buscar"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnTurno"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_below="@+id/tvEspecialidad"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/etFecha"
+            android:background="@color/colorPrimary"
+            android:text="buscar"
+            android:textColor="@color/colorPrimaryBackground" />
+
+        <Button
+            android:id="@+id/btnReservar"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_below="@+id/tvEspecialidad"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="200dp"
+            android:background="@color/colorPrimary"
+            android:text="Reservar"
+            android:textColor="@color/colorPrimaryBackground" />
+
+    </RelativeLayout>
+</LinearLayout>

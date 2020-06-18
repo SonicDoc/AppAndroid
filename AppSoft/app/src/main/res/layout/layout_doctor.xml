@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageDoctor"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="matrix" />
+
+            <TextView
+                android:id="@+id/Nombres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageDoctor"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/imageDoctor"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                tools:text="nombres" />
+
+            <TextView
+                android:id="@+id/Especialidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Nombres"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/imageDoctor"
+                android:textColor="@color/colorSuccess"
+                tools:text="especialidad" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
